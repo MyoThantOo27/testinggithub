@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Boutique - Coffee Shop</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+   
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    
+
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="m-0 text-uppercase text-white">BEAN BOUTIQUE</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="equipment.html">Equipment</a></li>
+                        <li class="nav-item"><a class="nav-link" href="coffee.html">Menu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+                        <li class="nav-item"><a class="nav-link" href="signin.html"><i class="fas fa-user"></i> Sign In</a></li>
+                        <li class="nav-item" id="logoutLink" style="display:none;"><a class="nav-link" href="#" onclick="logOut()">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Navbar End -->
+    
+   
+    
+
+    <section class="menu-section py-5 bg-light">
+        <div class="container">
+            <h3 class="text-center mb-4">Our Menu</h3>
+    
+            <!-- Search Box -->
+            <div class="search-box text-center mb-4">
+                <input type="text" class="form-control" id="menuSearch" placeholder="Search menu items...">
+            </div>
+            <h4 class="text-center mb-4">Coffee</h4>
+    
+            <div class="row g-4">
+                <!-- Item 1: Espresso -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/espresso coffee.jpg" class="card-img-top" alt="Espresso">
+                        <div class="card-body">
+                            <h5 class="card-title">Espresso</h5>
+                            <p class="card-text">$5.00</p>
+                            <p>A rich and bold espresso shot, perfect for kickstarting your day!</p>
+                            <p><strong>Tasting Notes:</strong> Deep, caramel notes with a hint of chocolate.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Espresso" data-price="5.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Item 2: Cappuccino -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/americano.webp" class="card-img-top" alt="Cappuccino">
+                        <div class="card-body">
+                            <h5 class="card-title">Cappuccino</h5>
+                            <p class="card-text">$6.50</p>
+                            <p>A creamy coffee with a perfect balance of espresso, steamed milk, and foam.</p>
+                            <p><strong>Tasting Notes:</strong> Velvety, smooth, and mildly sweet.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Cappuccino" data-price="6.50">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Item 3: Latte -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/lattle coffee.jpg" class="card-img-top" alt="Latte">
+                        <div class="card-body">
+                            <h5 class="card-title">Latte</h5>
+                            <p class="card-text">$6.00</p>
+                            <p>Silky smooth espresso blended with steamed milk for a rich experience.</p>
+                            <p><strong>Tasting Notes:</strong> Smooth and creamy with a touch of sweetness.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Latte" data-price="6.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Item 4: Cold Brew -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/cold brew coffee.jpg" class="card-img-top" alt="Cold Brew">
+                        <div class="card-body">
+                            <h5 class="card-title">Cold Brew</h5>
+                            <p class="card-text">$4.50</p>
+                            <p>Smooth and refreshing, brewed slowly for a full-bodied flavor.</p>
+                            <p><strong>Tasting Notes:</strong> Nutty with a hint of vanilla and chocolate.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Cold Brew" data-price="4.50">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Item 5: Mocha -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/Mocha-Frappe.jpg" class="card-img-top" alt="Mocha">
+                        <div class="card-body">
+                            <h5 class="card-title">Mocha</h5>
+                            <p class="card-text">$7.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Item 6: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/black coffee.jpeg" class="card-img-top" alt="Black coffee">
+                        <div class="card-body">
+                            <h5 class="card-title">Black Coffee</h5>
+                            <p class="card-text">$8.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 7: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/Flat white coffee.webp" class="card-img-top" alt="Flat white coffee">
+                        <div class="card-body">
+                            <h5 class="card-title">Flat white coffee</h5>
+                            <p class="card-text">$7.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 8: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/Affogato coffee.webp" class="card-img-top" alt="Affogato">
+                        <div class="card-body">
+                            <h5 class="card-title">Affogato Coffee</h5>
+                            <p class="card-text">$7.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 9: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/chocolate milk.jpg" class="card-img-top" alt="chocolate">
+                        <div class="card-body">
+                            <h5 class="card-title">Chocolate milk</h5>
+                            <p class="card-text">$8.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 10: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/chocolate cake.jpg" class="card-img-top" alt="chocolate">
+                        <div class="card-body">
+                            <h5 class="card-title">Chocolate Cake</h5>
+                            <p class="card-text">$10.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 11: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/coconut cake.webp" class="card-img-top" alt="coconut">
+                        <div class="card-body">
+                            <h5 class="card-title">Coconut cake</h5>
+                            <p class="card-text">$6.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 12: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/banana cake.jpg" class="card-img-top" alt="banana">
+                        <div class="card-body">
+                            <h5 class="card-title">Banana cake</h5>
+                            <p class="card-text">$7.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            
+                <!-- Item 13: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/Red Velvet Cake.jpg" class="card-img-top" alt="red">
+                        <div class="card-body">
+                            <h5 class="card-title">Red Velvet Cake</h5>
+                            <p class="card-text">$11.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 14: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/orange juice.webp" class="card-img-top" alt="orange">
+                        <div class="card-body">
+                            <h5 class="card-title">Orange juice</h5>
+                            <p class="card-text">$5.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 15: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/pineapple juice.jpg" class="card-img-top" alt="pineapple">
+                        <div class="card-body">
+                            <h5 class="card-title">Pineapple juice</h5>
+                            <p class="card-text">$7.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 16: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/pineapple.webp" class="card-img-top" alt="pineapple">
+                        <div class="card-body">
+                            <h5 class="card-title">pineapple Cake</h5>
+                            <p class="card-text">$10.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 17: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/kiwi juice.png" class="card-img-top" alt="kiwi">
+                        <div class="card-body">
+                            <h5 class="card-title">Kiwi juice</h5>
+                            <p class="card-text">$10.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 18: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/milk tea.webp" class="card-img-top" alt="milk">
+                        <div class="card-body">
+                            <h5 class="card-title">Milk Tea</h5>
+                            <p class="card-text">$10.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 19: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/Barraquitoail .jpg" class="card-img-top" alt="barraquitoail">
+                        <div class="card-body">
+                            <h5 class="card-title">Barraquitoail</h5>
+                            <p class="card-text">$10.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 20: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/ei kyar kway.avif" class="card-img-top" alt="barraquitoail">
+                        <div class="card-body">
+                            <h5 class="card-title">Ei Kyar Kway</h5>
+                            <p class="card-text">$10.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 21: -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="image/noodle.webp" class="card-img-top" alt="noodle">
+                        <div class="card-body">
+                            <h5 class="card-title">Noodle</h5>
+                            <p class="card-text">$10.00</p>
+                            <p>Espresso with steamed milk, chocolate, and a hint of sweetness.</p>
+                            <p><strong>Tasting Notes:</strong> Chocolatey, rich, and indulgent.</p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="quantity-selector d-flex align-items-center">
+                                    <button class="btn btn-outline-secondary minus-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <input type="number" class="form-control mx-2 text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary plus-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="btn btn-primary add-to-cart" data-item="Mocha" data-price="7.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more items as needed -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Start -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Info -->
+                <div class="col-md-3">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Mandalay</p>
+                    <p><i class="fas fa-phone-alt"></i> 09400050000</p>
+                    <p><i class="fas fa-envelope"></i> CafeReverie@gmail.com</p>
+                </div>
+                <!-- Social Links -->
+                <div class="col-md-3">
+                    <h4>Follow Us</h4>
+                    <a class="btn btn-outline-light btn-sm me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-sm me-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-sm me-2" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <!-- Opening Hours -->
+                <div class="col-md-3">
+                    <h4>Opening Hours</h4>
+                    <p>Mon-Fri: 8AM - 8PM</p>
+                    <p>Sat-Sun: 7AM - 8PM</p>
+                </div>
+                <!-- Newsletter -->
+                <div class="col-md-3">
+                    <h4>Newsletter</h4>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter email">
+                            <button class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <p class="text-center mt-4">© 2024 KOPPEE - All Rights Reserved</p>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
